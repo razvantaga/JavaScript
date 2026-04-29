@@ -1,0 +1,157 @@
+{% extends "partials/layout.html" %}
+
+{% block content %}
+
+<!-- Header -->
+<header>
+  <div class="logo">A<span>P</span>EX</div>
+  <div class="header-model" id="hdr-model">GT-R · Sport</div>
+  <div class="header-price" id="hdr-price">€28,900</div>
+</header>
+
+<!-- Stage -->
+<div class="stage">
+  <div class="stage-floor"></div>
+  <svg id="car-canvas" viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- ground shadow -->
+    <ellipse cx="310" cy="200" rx="220" ry="14" fill="rgba(0,0,0,0.45)" />
+    <!-- body -->
+    <rect id="c-body" x="55" y="115" width="510" height="80" rx="10" fill="#D1D5DB" />
+    <!-- roof -->
+    <path id="c-roof" d="M160 115 Q178 60 230 50 L390 50 Q442 60 460 115 Z" fill="#B8BCC3" />
+    <!-- windshield -->
+    <path d="M275 53 Q282 80 290 113 L335 113 Q343 80 348 53 Z" fill="rgba(150,210,255,0.45)"
+      stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <!-- rear window -->
+    <path d="M167 113 Q172 88 188 63 L230 53 Q215 84 210 113 Z" fill="rgba(150,210,255,0.35)"
+      stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <!-- b-pillar -->
+    <rect x="289" y="60" width="8" height="53" rx="2" fill="rgba(0,0,0,0.25)" />
+    <!-- side windows -->
+    <rect x="216" y="68" width="68" height="38" rx="4" fill="rgba(150,210,255,0.35)" stroke="rgba(255,255,255,0.08)"
+      stroke-width="1" />
+    <rect x="293" y="64" width="76" height="42" rx="4" fill="rgba(150,210,255,0.4)" stroke="rgba(255,255,255,0.08)"
+      stroke-width="1" />
+    <!-- door lines -->
+    <line x1="292" y1="115" x2="292" y2="192" stroke="rgba(0,0,0,0.18)" stroke-width="1.5" />
+    <line x1="420" y1="115" x2="420" y2="192" stroke="rgba(0,0,0,0.12)" stroke-width="1" />
+    <!-- body lower -->
+    <rect id="c-lower" x="55" y="175" width="510" height="20" rx="5" fill="rgba(0,0,0,0.22)" />
+    <!-- headlights -->
+    <rect x="527" y="122" width="30" height="14" rx="4" fill="#FEF9C3" />
+    <rect x="527" y="122" width="30" height="14" rx="4" fill="url(#hl-glow)" opacity="0.8" />
+    <!-- DRL strip -->
+    <rect x="530" y="120" width="24" height="3" rx="1.5" fill="rgba(255,255,200,0.9)" />
+    <!-- taillights -->
+    <rect x="58" y="122" width="20" height="14" rx="3" fill="#F87171" opacity="0.85" />
+    <rect x="58" y="139" width="20" height="8" rx="2" fill="#FDA4AF" opacity="0.7" />
+    <!-- grille -->
+    <rect x="527" y="140" width="30" height="22" rx="3" fill="rgba(0,0,0,0.5)" />
+    <line x1="527" y1="148" x2="557" y2="148" stroke="rgba(200,169,110,0.4)" stroke-width="1" />
+    <line x1="527" y1="154" x2="557" y2="154" stroke="rgba(200,169,110,0.4)" stroke-width="1" />
+    <!-- hood line -->
+    <path d="M460 115 Q510 110 555 118" stroke="rgba(0,0,0,0.15)" stroke-width="2" fill="none" />
+    <!-- door handles -->
+    <rect x="240" y="148" width="24" height="5" rx="2" fill="rgba(255,255,255,0.18)" />
+    <rect x="360" y="148" width="24" height="5" rx="2" fill="rgba(255,255,255,0.18)" />
+    <!-- wheels -->
+    <circle cx="155" cy="190" r="30" fill="#1a1a1a" />
+    <circle cx="155" cy="190" r="20" fill="#2a2a2a" />
+    <g id="rim-std-l">
+      <circle cx="155" cy="190" r="12" fill="#3a3a3a" />
+      <circle cx="155" cy="190" r="5" fill="#555" />
+    </g>
+    <g id="rim-sport-l" style="display:none">
+      <circle cx="155" cy="190" r="14" fill="#888" opacity="0.3" />
+      <line x1="155" y1="176" x2="155" y2="204" stroke="#999" stroke-width="2.5" />
+      <line x1="141" y1="183" x2="169" y2="197" stroke="#999" stroke-width="2.5" />
+      <line x1="141" y1="197" x2="169" y2="183" stroke="#999" stroke-width="2.5" />
+      <circle cx="155" cy="190" r="5" fill="#aaa" />
+    </g>
+
+    <circle cx="465" cy="190" r="30" fill="#1a1a1a" />
+    <circle cx="465" cy="190" r="20" fill="#2a2a2a" />
+    <g id="rim-std-r">
+      <circle cx="465" cy="190" r="12" fill="#3a3a3a" />
+      <circle cx="465" cy="190" r="5" fill="#555" />
+    </g>
+    <g id="rim-sport-r" style="display:none">
+      <circle cx="465" cy="190" r="14" fill="#888" opacity="0.3" />
+      <line x1="465" y1="176" x2="465" y2="204" stroke="#999" stroke-width="2.5" />
+      <line x1="451" y1="183" x2="479" y2="197" stroke="#999" stroke-width="2.5" />
+      <line x1="451" y1="197" x2="479" y2="183" stroke="#999" stroke-width="2.5" />
+      <circle cx="465" cy="190" r="5" fill="#aaa" />
+    </g>
+
+    <!-- sunroof -->
+    <rect id="c-sunroof" x="310" y="54" width="68" height="28" rx="4" fill="rgba(120,180,240,0.45)"
+      stroke="rgba(255,255,255,0.1)" stroke-width="1" style="display:none" />
+    <!-- spoiler -->
+    <rect id="c-spoiler" x="82" y="108" width="60" height="6" rx="3" fill="rgba(0,0,0,0.6)" style="display:none" />
+    <rect id="c-spoiler-2" x="82" y="102" width="6" height="10" rx="2" fill="rgba(0,0,0,0.5)" style="display:none" />
+    <rect id="c-spoiler-3" x="136" y="102" width="6" height="10" rx="2" fill="rgba(0,0,0,0.5)" style="display:none" />
+
+    <defs>
+      <radialGradient id="hl-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fffde7" stop-opacity="0.9" />
+        <stop offset="100%" stop-color="#fffde7" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <div class="stage-label">
+    <div class="model-name" id="stage-model-name">GT-R</div>
+    <div class="model-sub" id="stage-model-sub">2.0L Turbo · 220hp</div>
+  </div>
+</div>
+
+<!-- Config layout -->
+<div class="config-layout">
+  <div class="config-main">
+
+    <!-- 1. Model -->
+    <div class="config-section">
+      <div class="section-number">01</div>
+      <div class="section-title"><span>—</span> Choose Model</div>
+      <div class="model-grid" id="model-grid"></div>
+    </div>
+
+    <!-- 2. Color -->
+    <div class="config-section">
+      <div class="section-number">02</div>
+      <div class="section-title"><span>—</span> Exterior Color</div>
+      <div class="color-row" id="color-row"></div>
+    </div>
+
+    <!-- 3. Trim -->
+    <div class="config-section">
+      <div class="section-number">03</div>
+      <div class="section-title"><span>—</span> Interior Trim</div>
+      <div class="trim-grid" id="trim-grid"></div>
+    </div>
+
+    <!-- 4. Options -->
+    <div class="config-section">
+      <div class="section-number">04</div>
+      <div class="section-title"><span>—</span> Options &amp; Packages</div>
+      <div id="options-list"></div>
+    </div>
+
+  </div>
+
+  <!-- Sidebar -->
+  <div class="config-sidebar">
+    <div class="sidebar-title">Configuration</div>
+    <div id="summary-items"></div>
+    <div class="total-block">
+      <div class="total-label">Total Price</div>
+      <div class="total-price" id="total-price">€28,900</div>
+      <div class="total-sub">VAT included · Delivery from €490</div>
+      <button class="btn-cta" onclick="alert('Order placed! Our team will contact you within 24 hours.')">Reserve
+        Now</button>
+      <button class="btn-secondary" onclick="window.print()">Download Summary</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
