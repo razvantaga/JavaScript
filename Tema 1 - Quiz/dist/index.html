@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Documents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.min.css" />
+  </head>
+  <body>
+    
+
+<main>
+  <section><section>
+  <div class="container">
+    <div class="quiz-wrapper" id="quizWrapper">
+      <h1 id="quizTitle">This is the first question</h1>
+      <ul>
+        <li class="answer">This is the answer one</li>
+        <li class="answer">This is the answer two</li>
+        <li class="answer">This is the answer three</li>
+        <li class="answer">This is the answer four</li>
+      </ul>
+      <div class="quiz-footer">
+        <p>Score: <span id="score">0 / 3</span></p>
+        <a href="#" id="nextQuestion">Next</a>
+        <a href="#" id="finish">Finish</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" tabindex="-1" role="dialog" id="quizModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 id="modalTitle">Congratulations</h3>
+      <p>Your score is: <span id="modalScore"></span></p>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+
+
+    <script src="/scripts/bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/scripts/main.min.js"></script>
+  </body>
+</html>

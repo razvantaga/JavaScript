@@ -1,0 +1,57 @@
+{% extends "partials/layout.html" %}
+
+{% block content %}
+
+<main class="bg-dark bg-gradient text-light py-5">
+
+  <section class="container">
+
+    <!-- HEADER -->
+    <div class="row mb-4 align-items-center">
+
+      <div class="col-md-6">
+        <h1 class="fw-bold text-warning">Our Menu</h1>
+        <p class="text-secondary mb-0">Fresh food, delivered with taste</p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search dish..." id="searchValue">
+          <button class="btn btn-warning fw-bold" id="searchBtn">Search</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FILTERS -->
+    <div class="d-flex flex-wrap gap-2 mb-4">
+
+      <button class="btn btn-warning btn-sm rounded-pill text-dark filtersBtn" value="all">All</button>
+      <button class="btn btn-outline-primary btn-sm rounded-pill filtersBtn" value="furniture">Furniture</button>
+      <button class="btn btn-outline-success btn-sm rounded-pill filtersBtn" value="fragrances">Fragrances</button>
+      <button class="btn btn-outline-danger btn-sm rounded-pill filtersBtn" value="groceries">Groceries</button>
+      <button class="btn btn-outline-info btn-sm rounded-pill filtersBtn" value="beauty">Beauty</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill filtersBtn" value="kitchen-accessories">Kitchen
+        Accessories</button>
+      <button class="btn btn-outline-dark btn-sm rounded-pill filtersBtn" value="laptops">Laptops</button>
+      <button class="btn btn-outline-light btn-sm rounded-pill filtersBtn" value="mens-shirts">Mens Shirts</button>
+    </div>
+
+    <!-- MENU LIST -->
+    <div class="row g-3" id="menu"></div>
+
+    <div class="row mt-5">
+      <div class="col-12 d-flex justify-content-center">
+
+        <nav>
+          <ul class="pagination pagination-sm" id="pagination"></ul>
+        </nav>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock %}

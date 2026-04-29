@@ -1,0 +1,30 @@
+<section>
+  <div class="container">
+    <div class="quiz-wrapper" id="quizWrapper">
+      <h1 id="quizTitle">This is the first question</h1>
+      <ul>
+        <li class="answer">This is the answer one</li>
+        <li class="answer">This is the answer two</li>
+        <li class="answer">This is the answer three</li>
+        <li class="answer">This is the answer four</li>
+      </ul>
+      <div class="quiz-footer">
+        <p>Score: <span id="score">0 / 3</span></p>
+        <a href="#" id="nextQuestion">Next</a>
+        <a href="#" id="finish">Finish</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" tabindex="-1" role="dialog" id="quizModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 id="modalTitle">Congratulations</h3>
+      <p>Your score is: <span id="modalScore"></span></p>
+    </div>
+  </div>
+</div>

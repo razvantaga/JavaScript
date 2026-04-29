@@ -1,0 +1,38 @@
+@import "variabiles";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+main {
+  section {
+    .container {
+      .row {
+        .col-12 {
+          .card {
+            ul {
+              li {
+                &.editMode {
+                  .input-group {
+                    display: flex;
+                  }
+
+                  span,
+                  .btn-group {
+                    display: none;
+                  }
+                }
+
+                .input-group {
+                  display: none;
+                }
+
+                span,
+                .btn-group {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
