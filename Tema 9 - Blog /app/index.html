@@ -1,0 +1,183 @@
+{% extends "partials/layout.html" %}
+
+{% block content %}
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#">The <span>Filio</span></a>
+
+      <form class="d-flex" role="search" id="searchBlogForm">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+        <button class="btn btn-outline-success" type="submit" id="searchBtn"><i
+            class="fa-brands fa-sistrix"></i></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="container">
+    <div>
+      <span class="divider-line"></span>
+      Writing &amp; Ideas
+      <span class="divider-line"> </span>
+    </div>
+    <h1>Where words <em>find</em> their weight</h1>
+    <p>A journal for curious minds — exploring craft, culture, and the art of saying
+      something that matters</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container">
+  <div class="row g-5 pt-5">
+    <span>Topics</span>
+    <div class="d-flex justify-content-center mt-0" id="tagsContainer"></div>
+    <span>Essays</span>
+  </div>
+
+  <div class="row g-5 pt-5" id="blogsContainer">
+    <!-- ARTICLES -->
+    <div class="d-flex align-items-start flex-column col-12 col-md-6 col-xl-4 py-4 px-0">
+      <div class="card-thumb"></div>
+      <div>
+        <span>Culture</span>
+        <h3><a href="#">Why We Miss the Places We've Never Been</a></h3>
+        <p>
+          Nostalgia for imagined places is one of the stranger corners of human feeling —
+          longing for a version of the world that existed only in a photograph, a film, or someone else's
+          memory.
+        </p>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between gap-3 w-100">
+        <div class="author-row d-flex align-items-center g-5 gap-3">
+          <span class="author-avatar" style="background:linear-gradient(135deg,#4f7eb3,#2a4f7c)">M</span>
+          <div>
+            <p>Marcus Weil</p>
+            <p>Apr 24 · 8 min</p>
+          </div>
+        </div>
+        <a href="#" class="read-more">Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-5 pt-5">
+    <div class="text-center pt-3">
+      <a href="#" class="read-more" id="loadMoreBtn" style="font-size:.85rem">View all essays</a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h2>The <span>Filio</span></h2>
+        <p>A journal of writing &amp; ideas</p>
+        <p>Founded in 2019, The Craft
+          publishes writers who believe that form and function are inseparable — that how you say a thing is part of
+          what you're saying.</p>
+      </div>
+      <div class="col-md-2 offset-md-1">
+        <h3>
+          Sections</h3>
+        <a href="#">Essays</a>
+        <a href="#">Fiction</a>
+        <a href="#">Reviews</a>
+        <a href="#">Interviews</a>
+      </div>
+      <div class="col-md-2">
+        <h3>
+          Journal
+        </h3>
+        <a href="#">About</a>
+        <a href="#">Contributors</a>
+        <a href="#">Submit</a>
+        <a href="#">Archive</a>
+      </div>
+      <div class="col-md-2">
+        <h3>Follow</h3>
+        <a href="#">Twitter / X</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS Feed</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-copy d-flex justify-content-between flex-wrap gap-2">
+      <span>© 2026 TheCraft Journal. All rights reserved.</span>
+      <span>Made with care &amp; good sentences.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- MODAL BLOG DETAILS -->
+<div class="modal fade" id="blogModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+
+      <!-- HEADER -->
+      <div class="modal-header border-0 pb-0">
+        <div class="w-100">
+
+          <!-- CATEGORY + DATE -->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-warning text-dark text-uppercase small" id="modalCategory">
+              Culture
+            </span>
+            <small class="text-muted" id="modalDate">
+              Apr 24, 2026
+            </small>
+          </div>
+
+          <!-- TITLE -->
+          <h4 class="fw-bold mb-3" id="modalTitle">
+            Title goes here
+          </h4>
+
+          <!-- AUTHOR -->
+          <div class="d-flex align-items-center gap-2">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+              style="width:40px;height:40px;" id="modalAvatar">
+              M
+            </div>
+            <div>
+              <div class="fw-semibold small" id="modalAuthor">
+                Marcus Weil
+              </div>
+              <div class="text-muted small" id="modalReadTime">
+                8 min read
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body pt-3">
+        <p class="text-secondary lh-lg" id="modalBody">
+          Content...
+        </p>
+      </div>
+
+      <!-- FOOTER (optional actions) -->
+      <div class="modal-footer border-0 pt-0">
+        <button class="btn btn-outline-secondary btn-sm">Bookmark</button>
+        <button class="btn btn-dark btn-sm">Share</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
