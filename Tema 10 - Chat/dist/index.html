@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Documents</title>
+  <link rel="stylesheet" href="/styles/style.min.css">
+</head>
+
+<body>
+
+  
+
+<header class="topbar">
+  <span class="logo">Pulse</span>
+  <div class="topbar-search">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+      style="color:var(--muted)">
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35" />
+    </svg>
+    <input type="text" placeholder="Search messages…" />
+  </div>
+  <div class="topbar-actions">
+    <button title="Notifications">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </svg>
+    </button>
+    <button title="Settings">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+      </svg>
+    </button>
+    <div title="You">Y</div>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="chat-layout" id="chatLayout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="add-messages">
+      <span>Messages</span>
+      <button title="New chat" id="addNewChatBtn">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="d-flex px-3 d-none" id="addNewChatFormForm">
+      <input class="form-control" type="text" placeholder="Start new chat ..." aria-label="text" id="addNewChatInput"
+        name="addChat">
+      <button class="btn btn-outline-success" type="submit" id="searchBtn">Add</button>
+    </form>
+
+    <ul id="contactsList"></ul>
+  </aside>
+
+  <!-- CHAT AREA -->
+  <div class="chat-area d-none" id="chatArea">
+
+    <!-- CHAT HEADER -->
+    <div class="chat-header">
+      <div class="chat-header-avatar" id="header-avatar" style="background:linear-gradient(135deg,#5b6ef5,#8b5cf6)">A
+      </div>
+      <div class="chat-header-info">
+        <h3 class="chat-header-name" id="headerName"></h3>
+        <p class="chat-header-status" id="header-status">● Active now</p>
+      </div>
+      <div class="chat-header-actions">
+        <button title="Call">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </button>
+        <button title="Video">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polygon points="23 7 16 12 23 17 23 7" />
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+          </svg>
+        </button>
+        <button title="Info">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MESSAGES -->
+    <div class="messages-wrap" id="messagesWrap">
+      <!-- JS-rendered -->
+    </div>
+
+    <!-- EMOJI PICKER -->
+    <div class="emoji-picker" id="emoji-picker"></div>
+
+    <!-- INPUT -->
+    <div class="input-area">
+      <div class="input-bar">
+        <div class="input-actions-left">
+          <button class="inp-icon" id="emoji-toggle" title="Emoji">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" stroke-linecap="round" stroke-width="3" />
+              <line x1="15" y1="9" x2="15.01" y2="9" stroke-linecap="round" stroke-width="3" />
+            </svg>
+          </button>
+          <button class="inp-icon" title="Attach">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+            </svg>
+          </button>
+        </div>
+
+        <textarea id="msgInput" rows="1" placeholder="Type a message…"></textarea>
+
+        <button title="Send" id="sendMessageBtn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+      <p>Enter to send · Shift+Enter for new line</p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <aside class="right-panel d-none" id="rightPanel">
+    <div class="panel-avatar" id="panel-avatar" style="background:linear-gradient(135deg,#5b6ef5,#8b5cf6)">A</div>
+    <h3 id="panelAvatarName"></h3>
+
+    <div class="panel-stat-row">
+      <div class="panel-stat">
+        <span>248</span>
+        <p>Messages</p>
+      </div>
+      <div class="panel-stat">
+        <span>14</span>
+        <p>Files</p>
+      </div>
+    </div>
+
+    <h4>Shared Media</h4>
+    <div class="media-grid">
+      <div style="background:linear-gradient(135deg,#1e3a5f,#0a2040)">🖼️</div>
+      <div style="background:linear-gradient(135deg,#3a1e5f,#200a40)">🎨</div>
+      <div style="background:linear-gradient(135deg,#1e5f3a,#0a4020)">🌿</div>
+      <div style="background:linear-gradient(135deg,#5f3a1e,#40200a)">🌅</div>
+      <div style="background:linear-gradient(135deg,#1e5f5f,#0a4040)">🔷</div>
+      <div style="background:linear-gradient(135deg,#2a2a4a,#111128)">✨</div>
+    </div>
+
+    <h4>Shared Files</h4>
+    <div class="file-item">
+      <div class="file-icon">📄</div>
+      <div style="min-width:0">
+        <span>design-brief.pdf</span>
+        <p>2.4 MB</p>
+      </div>
+    </div>
+    <div class="file-item">
+      <div class="file-icon">🗂️</div>
+      <div style="min-width:0">
+        <span>assets-v3.zip</span>
+        <p>18.7 MB</p>
+      </div>
+    </div>
+    <div class="file-item">
+      <div class="file-icon">📊</div>
+      <div style="min-width:0">
+        <span>metrics-q1.xlsx</span>
+        <p>840 KB</p>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+
+
+  <script src="/scripts/bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+  <script src="/scripts/main.min.js"></script>
+
+</body>
+
+</html>
